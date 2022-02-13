@@ -58,7 +58,7 @@ app.delete("/movies/:id", (req, res) => {
     for(let i = 0; i < moviesArray.length; i++) {
         if (moviesArray[i].id == req.params.id) {
             // Save the title before deleting it in the array
-            let deletedMovieTitle = moviesArray[i].title;
+            const deletedMovieTitle = moviesArray[i].title;
             moviesArray.splice(i, 1);
             return res.send({message : deletedMovieTitle + " has been deleted", moviesArray: moviesArray});
         }
@@ -71,7 +71,7 @@ app.put("/movies/:id", (req, res) => {
     for(let i = 0; i < moviesArray.length; i++) {
         if (moviesArray[i].id == req.params.id) {
             // Save the title before updating it in the array
-            let oldMovieTitle = moviesArray[i].title;
+            const oldMovieTitle = moviesArray[i].title;
             moviesArray[i].title = req.body.title
             moviesArray[i].year = req.body.year
             moviesArray[i].catogory = req.body.catogory
